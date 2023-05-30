@@ -1,0 +1,17 @@
+dir='FeNiCoCr_H2 NiCoCr_H2 FeNiCoCr_H3 NiCoCr_H3'
+for d in $dir
+do
+cd $d
+pwd
+file=`ls -l | grep .scf | awk '{print $9}'`
+for i in $file
+do
+echo $i
+sed -i "s/EFGS...=  0.150 HX....=  0.050 NX...= 15 NZ0..= 16/EFGS...=  0.650 HX....=  0.075 NX...= 15 NZ0..= 16/g" $i
+#sed -i "s/Lmaxt=  4/Lmaxt=  5/g" $i
+#sed -i "s/1.00e-12/1.00e-10/g" $i
+#sed -i "s/NPRN.=  0/NPRN.=  1/g" $i
+#sed -i "s/NITER=100/NITER=500/g" $i
+done
+cd ..
+done

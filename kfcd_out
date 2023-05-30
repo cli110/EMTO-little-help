@@ -1,0 +1,15 @@
+#cd combi_def
+dir='NbTaTiZr_dis NbTaTiZr_dis2 NbTaVZr_dis NbTaVZr_dis2 TaTiVZr_dis TaTiVZr_dis2 NbTaTiVZr_dis NbTaTiVZr_dis2'
+for j in $dir
+do
+echo $j
+cd $j/kfcd
+pwd
+file2=`ls -l | grep .prn | awk '{print $9}'`
+for f in $file2
+do
+echo $f
+grep TOT-PBE $f
+done
+cd ../..
+done
